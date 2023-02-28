@@ -1,5 +1,6 @@
 import { run } from './run'
 import { getSetupFiles } from './get-setup-files'
+import { startShell } from './start-shell'
 import type { Context } from './run'
 import type { Terminal } from 'xterm'
 import type { WebContainer } from '@webcontainer/api'
@@ -26,4 +27,5 @@ export async function startup(webcontainer: WebContainer, terminal: Terminal) {
   terminal.writeln(
     `\n\nFinished! You\'re running Amplify CLI in the browser!\n`
   )
+  await startShell(webcontainer, terminal)
 }

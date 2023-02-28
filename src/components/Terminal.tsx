@@ -1,18 +1,11 @@
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect } from 'react'
 import { Terminal as XTerm } from 'xterm'
 import { useWebContainer } from '../support/WebContainer'
 import { startup } from '../support/startup'
+import { createTerminal } from '../support/create-terminal'
 import type { PropsWithChildren } from 'react'
 
 export type TerminalProps = PropsWithChildren<{}>
-
-function createTerminal(node: HTMLElement) {
-  const terminal = new XTerm({
-    convertEol: true,
-  })
-  terminal.open(node)
-  return terminal
-}
 
 export function Terminal(props: TerminalProps) {
   const terminal = useRef<XTerm>()

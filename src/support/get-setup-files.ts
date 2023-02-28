@@ -3,7 +3,7 @@ import type { FileSystemTree } from '@webcontainer/api'
 /**
  * @todo refactor to use Vite's `define` to inject the setup file list
  */
-const SETUP_FILES = ['patch-amplify-plugins.mjs']
+const SETUP_FILES = ['patch-amplify-plugins.mjs', '.npmrc']
 
 export function fetchSetupFile(path: string) {
   return fetch(`/setup-files/${path}`).then((response) => response.text())
